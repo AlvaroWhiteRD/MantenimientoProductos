@@ -66,6 +66,7 @@ namespace CapaPresentacion.Sales
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -75,6 +76,10 @@ namespace CapaPresentacion.Sales
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearchProductSale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -469,6 +474,7 @@ namespace CapaPresentacion.Sales
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.lblEmployeeName);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.pictureBox7);
@@ -479,6 +485,14 @@ namespace CapaPresentacion.Sales
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(859, 167);
             this.panel5.TabIndex = 86;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.panel9.Location = new System.Drawing.Point(525, -4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(2, 165);
+            this.panel9.TabIndex = 108;
             // 
             // lblEmployeeName
             // 
@@ -588,12 +602,48 @@ namespace CapaPresentacion.Sales
             this.panel4.Size = new System.Drawing.Size(235, 119);
             this.panel4.TabIndex = 106;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.panel6.Location = new System.Drawing.Point(72, 556);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(857, 2);
+            this.panel6.TabIndex = 107;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.panel7.Location = new System.Drawing.Point(72, 156);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(857, 2);
+            this.panel7.TabIndex = 108;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.panel8.Location = new System.Drawing.Point(72, 284);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(857, 2);
+            this.panel8.TabIndex = 109;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.panel10.Location = new System.Drawing.Point(690, 157);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(2, 130);
+            this.panel10.TabIndex = 109;
+            // 
             // FrmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1092, 927);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.searchDNI);
@@ -685,5 +735,10 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel10;
     }
 }
