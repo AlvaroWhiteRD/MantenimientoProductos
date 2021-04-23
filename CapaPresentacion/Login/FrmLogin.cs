@@ -83,11 +83,13 @@ namespace CapaPresentacion.Login
                     switch (usersEntities.IdRol)
                     {
                         case 1:
+                            this.Hide();
                             UserPrivileges.AdminPrivileges();
                             //Application.Exit();
                             break;
 
                         case 2:
+                            this.Hide();
                             UserPrivileges.CashierPrivileges();
                             //Application.Exit();
                             break;

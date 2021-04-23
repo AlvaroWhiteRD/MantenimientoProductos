@@ -14,7 +14,7 @@ namespace CapaPresentacion.Login
             FrmPrincipal frmPrincipal = new FrmPrincipal();
 
             FrmLogin _login = new FrmLogin();
-            _login.Close();
+           // _login.Hide();
             //Application.Exit();
 
             frmPrincipal.ShowDialog();
@@ -26,7 +26,7 @@ namespace CapaPresentacion.Login
             FrmPrincipal _frmPrincipal = new FrmPrincipal();
             FrmLogin _login = new FrmLogin();
 
-             _login.Close();
+            // _login.Close();
             //Application.Exit();
             _frmPrincipal.ShowDialog();
         }
