@@ -96,7 +96,7 @@ namespace CapaPresentacion.Empleados
             {
                 if (tableEmployee.Rows[e.RowIndex].Cells["delete"].Selected)
                 {
-                    mensaje = new FrmInformacion("ELIMINAR ESTE CLIENTE?");
+                    mensaje = new FrmError("ELIMINAR ESTE CLIENTE?");
                     DialogResult dialogResult = mensaje.ShowDialog();
 
                     if (dialogResult == DialogResult.OK)

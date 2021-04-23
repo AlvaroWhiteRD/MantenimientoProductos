@@ -75,7 +75,7 @@ namespace CapaPresentacion
         {
             if (tablaProductos.Rows[e.RowIndex].Cells["eliminar"].Selected)
             {
-                mensaje = new FrmInformacion("ELIMINAR ESTE PRODUCTO?");
+                mensaje = new FrmError("ELIMINAR ESTE PRODUCTO?");
                 DialogResult dialogResult = mensaje.ShowDialog();
 
                 if (dialogResult == DialogResult.OK)

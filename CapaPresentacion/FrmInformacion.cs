@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FrmInformacion : Form
+    public partial class FrmError : Form
     {
-        public FrmInformacion( string mensaje)
+        public FrmError( string mensaje)
         {
             InitializeComponent();
 

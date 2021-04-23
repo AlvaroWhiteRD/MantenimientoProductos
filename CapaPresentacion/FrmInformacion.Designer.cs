@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class FrmInformacion
+    partial class FrmError
     {
         /// <summary>
         /// Required designer variable.

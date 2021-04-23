@@ -36,11 +36,9 @@ namespace CapaPresentacion.Sales
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pbApplySale = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.cmbNameClientSale = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCodeProduct = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -48,14 +46,6 @@ namespace CapaPresentacion.Sales
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dgvTableSales = new System.Windows.Forms.DataGridView();
-            this.codeProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblAddressCustomer = new System.Windows.Forms.Label();
@@ -66,6 +56,7 @@ namespace CapaPresentacion.Sales
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -76,14 +67,21 @@ namespace CapaPresentacion.Sales
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.codeProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApplySale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -103,14 +101,14 @@ namespace CapaPresentacion.Sales
             this.txtTotalToPay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTotalToPay.Font = new System.Drawing.Font("Poppins Medium", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtTotalToPay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
-            this.txtTotalToPay.Location = new System.Drawing.Point(20, 54);
+            this.txtTotalToPay.Location = new System.Drawing.Point(55, 54);
             this.txtTotalToPay.Multiline = true;
             this.txtTotalToPay.Name = "txtTotalToPay";
             this.txtTotalToPay.ReadOnly = true;
+            this.txtTotalToPay.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtTotalToPay.ShortcutsEnabled = false;
-            this.txtTotalToPay.Size = new System.Drawing.Size(193, 45);
+            this.txtTotalToPay.Size = new System.Drawing.Size(158, 38);
             this.txtTotalToPay.TabIndex = 62;
-            this.txtTotalToPay.Text = "RD$";
             // 
             // pictureBox8
             // 
@@ -140,21 +138,11 @@ namespace CapaPresentacion.Sales
             this.pbApplySale.Image = ((System.Drawing.Image)(resources.GetObject("pbApplySale.Image")));
             this.pbApplySale.Location = new System.Drawing.Point(723, 24);
             this.pbApplySale.Name = "pbApplySale";
-            this.pbApplySale.Size = new System.Drawing.Size(114, 86);
+            this.pbApplySale.Size = new System.Drawing.Size(100, 69);
             this.pbApplySale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbApplySale.TabIndex = 47;
             this.pbApplySale.TabStop = false;
             this.pbApplySale.Click += new System.EventHandler(this.pbApplySale_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.CajaTexto;
-            this.pictureBox2.Location = new System.Drawing.Point(166, 774);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(362, 52);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 42;
-            this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
@@ -187,19 +175,6 @@ namespace CapaPresentacion.Sales
             this.label13.Size = new System.Drawing.Size(72, 23);
             this.label13.TabIndex = 71;
             this.label13.Text = "2021/10/10";
-            // 
-            // cmbNameClientSale
-            // 
-            this.cmbNameClientSale.BackColor = System.Drawing.Color.White;
-            this.cmbNameClientSale.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbNameClientSale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNameClientSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbNameClientSale.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbNameClientSale.FormattingEnabled = true;
-            this.cmbNameClientSale.Location = new System.Drawing.Point(168, 774);
-            this.cmbNameClientSale.Name = "cmbNameClientSale";
-            this.cmbNameClientSale.Size = new System.Drawing.Size(333, 36);
-            this.cmbNameClientSale.TabIndex = 72;
             // 
             // label10
             // 
@@ -313,65 +288,6 @@ namespace CapaPresentacion.Sales
             this.dgvTableSales.Size = new System.Drawing.Size(859, 253);
             this.dgvTableSales.TabIndex = 83;
             this.dgvTableSales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableSales_CellClick);
-            // 
-            // codeProduct
-            // 
-            this.codeProduct.HeaderText = "CODIGO";
-            this.codeProduct.Name = "codeProduct";
-            this.codeProduct.ReadOnly = true;
-            this.codeProduct.Width = 145;
-            // 
-            // product
-            // 
-            this.product.HeaderText = "PRODUCTO";
-            this.product.Name = "product";
-            this.product.ReadOnly = true;
-            this.product.Width = 250;
-            // 
-            // amount
-            // 
-            this.amount.HeaderText = "CANTIDAD";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "STOCK";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 75;
-            // 
-            // salePrice
-            // 
-            this.salePrice.FillWeight = 150F;
-            this.salePrice.HeaderText = "PRECIO";
-            this.salePrice.Name = "salePrice";
-            this.salePrice.ReadOnly = true;
-            this.salePrice.Width = 75;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "TOTAL";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 110;
-            // 
-            // idProduct
-            // 
-            this.idProduct.HeaderText = "IDPRODUCTO";
-            this.idProduct.Name = "idProduct";
-            this.idProduct.ReadOnly = true;
-            this.idProduct.Visible = false;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "ELIMINAR";
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panel2
             // 
@@ -489,12 +405,22 @@ namespace CapaPresentacion.Sales
             this.panel5.Size = new System.Drawing.Size(859, 167);
             this.panel5.TabIndex = 86;
             // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.txtIdCliente.Location = new System.Drawing.Point(17, 78);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(100, 31);
+            this.txtIdCliente.TabIndex = 109;
+            this.txtIdCliente.Text = "id cliente";
+            this.txtIdCliente.Visible = false;
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
-            this.panel9.Location = new System.Drawing.Point(525, -4);
+            this.panel9.Location = new System.Drawing.Point(525, -17);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(2, 165);
+            this.panel9.Size = new System.Drawing.Size(2, 185);
             this.panel9.TabIndex = 108;
             // 
             // lblEmployeeName
@@ -526,7 +452,7 @@ namespace CapaPresentacion.Sales
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(541, 24);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(136, 86);
+            this.pictureBox7.Size = new System.Drawing.Size(117, 69);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 107;
             this.pictureBox7.TabStop = false;
@@ -566,7 +492,7 @@ namespace CapaPresentacion.Sales
             this.searchDNI.PlaceholderText = "Buscar Por Cedula";
             this.searchDNI.ShortcutsEnabled = false;
             this.searchDNI.Size = new System.Drawing.Size(161, 23);
-            this.searchDNI.TabIndex = 103;
+            this.searchDNI.TabIndex = 2;
             this.searchDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.searchDNI.TextChanged += new System.EventHandler(this.searchDNI_TextChanged);
             this.searchDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchDNI_KeyPress);
@@ -595,6 +521,7 @@ namespace CapaPresentacion.Sales
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.txtTotalToPay);
             this.panel4.Controls.Add(this.pictureBox8);
@@ -604,6 +531,18 @@ namespace CapaPresentacion.Sales
             this.panel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel4.Size = new System.Drawing.Size(235, 119);
             this.panel4.TabIndex = 106;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.label4.Location = new System.Drawing.Point(17, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 22);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "RD$";
             // 
             // panel6
             // 
@@ -637,15 +576,64 @@ namespace CapaPresentacion.Sales
             this.panel10.Size = new System.Drawing.Size(2, 130);
             this.panel10.TabIndex = 109;
             // 
-            // txtIdCliente
+            // codeProduct
             // 
-            this.txtIdCliente.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.txtIdCliente.Location = new System.Drawing.Point(17, 78);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(100, 31);
-            this.txtIdCliente.TabIndex = 109;
-            this.txtIdCliente.Text = "id cliente";
-            this.txtIdCliente.Visible = false;
+            this.codeProduct.HeaderText = "CODIGO";
+            this.codeProduct.Name = "codeProduct";
+            this.codeProduct.ReadOnly = true;
+            this.codeProduct.Width = 145;
+            // 
+            // product
+            // 
+            this.product.HeaderText = "PRODUCTO";
+            this.product.Name = "product";
+            this.product.ReadOnly = true;
+            this.product.Width = 250;
+            // 
+            // amount
+            // 
+            this.amount.HeaderText = "CANTIDAD";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "STOCK";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.Width = 75;
+            // 
+            // salePrice
+            // 
+            this.salePrice.FillWeight = 150F;
+            this.salePrice.HeaderText = "PRECIO";
+            this.salePrice.Name = "salePrice";
+            this.salePrice.ReadOnly = true;
+            this.salePrice.Width = 75;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "TOTAL";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 110;
+            // 
+            // idProduct
+            // 
+            this.idProduct.HeaderText = "IDPRODUCTO";
+            this.idProduct.Name = "idProduct";
+            this.idProduct.ReadOnly = true;
+            this.idProduct.Visible = false;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "ELIMINAR";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmSales
             // 
@@ -670,10 +658,8 @@ namespace CapaPresentacion.Sales
             this.Controls.Add(this.txtCodeProduct);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.cmbNameClientSale);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.pictureBox2);
             this.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSales";
@@ -681,7 +667,6 @@ namespace CapaPresentacion.Sales
             this.Text = "FrmSales";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApplySale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -709,11 +694,9 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pbApplySale;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
-        public System.Windows.Forms.ComboBox cmbNameClientSale;
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.TextBox txtCodeProduct;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -722,14 +705,6 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvTableSales;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codeProduct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProduct;
-        private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblAddressCustomer;
         private System.Windows.Forms.Label lblCustomer;
@@ -740,7 +715,6 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label18;
-        public System.Windows.Forms.TextBox searchDNI;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
@@ -754,5 +728,15 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox searchDNI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProduct;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
     }
 }

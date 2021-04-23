@@ -17,7 +17,9 @@ namespace CapaPresentacion.Sales
         //creamos el objeto para buscar en la base de datos los productos.
         N_Productos objBusinessProduct = new N_Productos();
 
-        FrmSuccess frmConfirmacion;
+
+        FrmSuccess formSuccess;
+        FrmError formErro;
 
         public FrmSales()
         {
@@ -169,7 +171,7 @@ namespace CapaPresentacion.Sales
                 total += importe;
             }
             //le pasamos el total a nuestro label  de pago para mostrarlo al usuario.
-            txtTotalToPay.Text = "RD$  " + total;
+            txtTotalToPay.Text = total.ToString();
 
             //limpiamos los campos luego de la busquedad
             txtQuantityToSell.Text = "";
@@ -237,28 +239,74 @@ namespace CapaPresentacion.Sales
             CalculateTotal();
         }
 
+        //evento-metodo- que se encarga de enviar la venta para el insert a la base de datos
         private void pbApplySale_Click(object sender, EventArgs e)
         {
             //realizamos la instancia de nuestra entidad y nuetro negocio.
             N_Sales applySale = new N_Sales();
+            N_SalesConcepts applySaleConcepts = new N_SalesConcepts();
             E_Sales entitySale = new E_Sales();
+            E_SalesConcepts entitySaleConcept = new E_SalesConcepts();
 
             try
             {
+                //le pasamos los valores a nuestra entidad
                 entitySale.IdUser = SessionUsers.IdUser;
-                MessageBox.Show("algo IdUser..." + entitySale.IdUser);
                 entitySale.IdClient = Int32.Parse(txtIdCliente.Text);
-                MessageBox.Show("algo IdClient..." + entitySale.IdClient);
                 entitySale.Total = decimal.Parse(txtTotalToPay.Text);
                 entitySale.DateOfSale = DateTime.Now;
-                applySale.GenerarateSalesInsert(entitySale);
-                frmConfirmacion = new FrmSuccess("Se Realizo la venta :)");
-                frmConfirmacion.ShowDialog();
+
+                //realizamos el envio de los datos para la insercion a la base de datos
+                int idSale = applySale.GenerarateSalesInsert(entitySale);
+
+                //si el insert se realiza exitosamente en la tabla ventas
+                //se realizara el segundo insert a la tabla detalle de venta.
+                if (idSale > 0)
+
+                {
+                    //creamos un ciclo para recorrer cada celda de la tabla(datagridview sales)
+                    foreach (DataGridViewRow rows in dgvTableSales.Rows)
+                    {
+                        //el tomamos el ultimo id insertado
+                        entitySaleConcept.IdSale = idSale;
+                        //buscamos en la celda a utilizar para el id del producto
+                        entitySaleConcept.IdProduct = Int32.Parse(rows.Cells[6].Value.ToString());
+                        //buscamos en la celda a utilizar para el precio del producto
+                        entitySaleConcept.SalePrice = Int32.Parse(rows.Cells[4].Value.ToString());
+                        //buscamos en la celda a utilizar para el total del producto.
+                        entitySaleConcept.Amount = Int32.Parse(rows.Cells[5].Value.ToString());
+                    }
+
+                    applySaleConcepts.GenerarateSaleConceptInsert(entitySaleConcept);
+                 
+                    //venta exitosa
+                    formSuccess = new FrmSuccess("Venta Exitosa!");
+                    formSuccess.ShowDialog();
+                    //luego de completar la venta limpiamos la tabla venta.
+                    //dgvTableSales.DataSource = "";
+                    dgvTableSales.Columns.Clear();
+                    CalculateTotal();
+
+                    //limpiamos todos los campos de la venta
+                    searchDNI.Text = "";
+                    lblCustomer.Text = "Nombre Del CLiente";
+                    lblAddressCustomer.Text = "Direccion Del Cliente";
+                }
+                else
+                {
+                    formErro = new FrmError("Error en la venta.");
+                    formErro.ShowDialog();
+
+
+                }
+
+
+
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("algo no anda bien..."+ex);
+                MessageBox.Show("algo no anda bien..." + ex);
             }
         }
     }

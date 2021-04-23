@@ -1,6 +1,7 @@
 ﻿using CapaNegocio.SessionUsers;
 using CapaPresentacion.Customers;
 using CapaPresentacion.Empleados;
+using CapaPresentacion.Login;
 using CapaPresentacion.Sales;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace CapaPresentacion
 {
     public partial class FrmPrincipal : Form
     {
+        FrmLogin login;
+
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -36,12 +39,15 @@ namespace CapaPresentacion
         private void pbSalir_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = new DialogResult();
-            Form mensanje = new FrmInformacion("SALIR DEL SISTEMA?");
+            Form mensanje = new FrmError("SALIR DEL SISTEMA?");
             dialogResult = mensanje.ShowDialog();
 
             if (dialogResult == DialogResult.OK)
             {
-                Application.Exit();
+                this.Close();
+                this.login = new FrmLogin();
+                login.ShowDialog();
+
             }
         }
 

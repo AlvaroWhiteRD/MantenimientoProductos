@@ -16,10 +16,11 @@ namespace CapaNegocio
         //instanciamos la clase de la capaDatos 
         D_Sales objSales = new D_Sales();
 
-        public void GenerarateSalesInsert(E_Sales _sales)
+        public int GenerarateSalesInsert(E_Sales _sales)
         {
-            objSales.GenerarateSaleInsert(_sales);
+           return objSales.GenerarateSaleInsert(_sales);
         }
-  
+     
+
     }
 }

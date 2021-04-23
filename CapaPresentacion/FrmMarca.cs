@@ -152,7 +152,7 @@ namespace CapaPresentacion
                     {
 
                     DialogResult dialogResult = new DialogResult();
-                    FrmInformacion frmMensaje = new FrmInformacion("ELIMINAR ESTE REGISTRO?");
+                    FrmError frmMensaje = new FrmError("ELIMINAR ESTE REGISTRO?");
                     dialogResult = frmMensaje.ShowDialog();
 
                     if (dialogResult == DialogResult.OK)

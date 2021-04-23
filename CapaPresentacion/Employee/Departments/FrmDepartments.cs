@@ -153,7 +153,7 @@ namespace CapaPresentacion.Employee.Departments
                 {
 
                     DialogResult dialogResult = new DialogResult();
-                    FrmInformacion frmMessage = new FrmInformacion("ELIMINAR ESTE REGISTRO?");
+                    FrmError frmMessage = new FrmError("ELIMINAR ESTE REGISTRO?");
                     dialogResult = frmMessage.ShowDialog();
 
                     if (dialogResult == DialogResult.OK)

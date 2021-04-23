@@ -92,7 +92,7 @@ namespace CapaPresentacion.Customers
             {
                 if (tableClient.Rows[e.RowIndex].Cells["delete"].Selected)
                 {
-                    message = new FrmInformacion("ELIMINAR ESTE CLIENTE?");
+                    message = new FrmError("ELIMINAR ESTE CLIENTE?");
                     DialogResult dialogResult = message.ShowDialog();
 
                     if (dialogResult == DialogResult.OK)
