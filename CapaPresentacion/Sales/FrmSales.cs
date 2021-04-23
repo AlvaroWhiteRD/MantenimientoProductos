@@ -17,7 +17,7 @@ namespace CapaPresentacion.Sales
         //creamos el objeto para buscar en la base de datos los productos.
         N_Productos objBusinessProduct = new N_Productos();
 
-        //double miTotal;
+        FrmSuccess frmConfirmacion;
 
         public FrmSales()
         {
@@ -27,35 +27,6 @@ namespace CapaPresentacion.Sales
             txtQuantityToSell.Focus();
             //ItemsCmbClient();
         }
-
-        //metodo que se encarga de buscar los clientes en la DB
-        //y mostrarlo en el comboBox
-        /*public void ItemsCmbClient()
-        {
-            //creamos el objecto de la capa negocio para usar el metodo de mostrar empleado
-            N_Customers _itemsClient = new N_Customers();
-            cmbNameClientSale.DataSource = _itemsClient.ShowClienteIdNameCMB();
-            cmbNameClientSale.Text = "Casi eres el mejor cliente del mundo";
-            //quiero que tenga el valor del id
-            cmbNameClientSale.ValueMember = "IdClient";
-            //pero quiero que el usuario vea el nombre
-            //se creo otro procedimiento almacenado para traer el nombre y apellido
-            //concatenado desde la DB. DisplayMember solo admite una columna
-            cmbNameClientSale.DisplayMember = "CustomerName";
-
-
-        }*/
-
-        /*private void pbSearchClient_Click(object sender, EventArgs e)
-        {
-            //instanciamos el formulario FrmProductModal el cual se
-            ////abrira como un modal
-            FrmProductModal frmProductModal = new FrmProductModal();
-            frmProductModal.ShowDialog();
-            //variable que nos dira si la pelicion viene del formulario de ventas.
-            frmProductModal.modalSales = true;
-
-        }*/
         //metodo que busca los productos para agregarlo a la tabla
         private void txtCodeProduct_TextChanged(object sender, EventArgs e)
         {
@@ -209,7 +180,7 @@ namespace CapaPresentacion.Sales
         }
 
         //metodo que se encarga de buscar por dni a los clintes
-        //para luego mostrarlo a los clientes
+        //para luego mostrar su informacion
         private void searchDNI_TextChanged(object sender, EventArgs e)
         {
             //validamos que el dni tenga 11 caracteres para empezar la busqueda.
@@ -228,6 +199,7 @@ namespace CapaPresentacion.Sales
             {
                 lblCustomer.Text = item.CustomerName + " " + item.ClientLastName + " " + item.ClientMaternalSurname;
                 lblAddressCustomer.Text = item.CustomerAddress;
+                txtIdCliente.Text = item.IdClient.ToString();
             }
 
 
@@ -261,8 +233,33 @@ namespace CapaPresentacion.Sales
             {
                 return;
             }
-            dgvTableSales.Rows.RemoveAt(e.RowIndex); 
+            dgvTableSales.Rows.RemoveAt(e.RowIndex);
             CalculateTotal();
+        }
+
+        private void pbApplySale_Click(object sender, EventArgs e)
+        {
+            //realizamos la instancia de nuestra entidad y nuetro negocio.
+            N_Sales applySale = new N_Sales();
+            E_Sales entitySale = new E_Sales();
+
+            try
+            {
+                entitySale.IdUser = SessionUsers.IdUser;
+                MessageBox.Show("algo IdUser..." + entitySale.IdUser);
+                entitySale.IdClient = Int32.Parse(txtIdCliente.Text);
+                MessageBox.Show("algo IdClient..." + entitySale.IdClient);
+                entitySale.Total = decimal.Parse(txtTotalToPay.Text);
+                entitySale.DateOfSale = DateTime.Now;
+                applySale.GenerarateSalesInsert(entitySale);
+                frmConfirmacion = new FrmSuccess("Se Realizo la venta :)");
+                frmConfirmacion.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("algo no anda bien..."+ex);
+            }
         }
     }
 

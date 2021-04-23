@@ -35,7 +35,7 @@ namespace CapaPresentacion.Sales
             this.txtTotalToPay = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pbSearchProductSale = new System.Windows.Forms.PictureBox();
+            this.pbApplySale = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -80,8 +80,9 @@ namespace CapaPresentacion.Sales
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearchProductSale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbApplySale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -132,17 +133,18 @@ namespace CapaPresentacion.Sales
             this.label8.TabIndex = 60;
             this.label8.Text = "TOTAL  A PAGAR";
             // 
-            // pbSearchProductSale
+            // pbApplySale
             // 
-            this.pbSearchProductSale.BackColor = System.Drawing.Color.White;
-            this.pbSearchProductSale.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSearchProductSale.Image = ((System.Drawing.Image)(resources.GetObject("pbSearchProductSale.Image")));
-            this.pbSearchProductSale.Location = new System.Drawing.Point(723, 24);
-            this.pbSearchProductSale.Name = "pbSearchProductSale";
-            this.pbSearchProductSale.Size = new System.Drawing.Size(114, 86);
-            this.pbSearchProductSale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSearchProductSale.TabIndex = 47;
-            this.pbSearchProductSale.TabStop = false;
+            this.pbApplySale.BackColor = System.Drawing.Color.White;
+            this.pbApplySale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbApplySale.Image = ((System.Drawing.Image)(resources.GetObject("pbApplySale.Image")));
+            this.pbApplySale.Location = new System.Drawing.Point(723, 24);
+            this.pbApplySale.Name = "pbApplySale";
+            this.pbApplySale.Size = new System.Drawing.Size(114, 86);
+            this.pbApplySale.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbApplySale.TabIndex = 47;
+            this.pbApplySale.TabStop = false;
+            this.pbApplySale.Click += new System.EventHandler(this.pbApplySale_Click);
             // 
             // pictureBox2
             // 
@@ -474,11 +476,12 @@ namespace CapaPresentacion.Sales
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.txtIdCliente);
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.lblEmployeeName);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.pictureBox7);
-            this.panel5.Controls.Add(this.pbSearchProductSale);
+            this.panel5.Controls.Add(this.pbApplySale);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Location = new System.Drawing.Point(72, 566);
@@ -634,6 +637,16 @@ namespace CapaPresentacion.Sales
             this.panel10.Size = new System.Drawing.Size(2, 130);
             this.panel10.TabIndex = 109;
             // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.txtIdCliente.Location = new System.Drawing.Point(17, 78);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(100, 31);
+            this.txtIdCliente.TabIndex = 109;
+            this.txtIdCliente.Text = "id cliente";
+            this.txtIdCliente.Visible = false;
+            // 
             // FrmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 28F);
@@ -667,7 +680,7 @@ namespace CapaPresentacion.Sales
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSales";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearchProductSale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbApplySale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -695,7 +708,7 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.TextBox txtTotalToPay;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pbSearchProductSale;
+        private System.Windows.Forms.PictureBox pbApplySale;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
@@ -740,5 +753,6 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox txtIdCliente;
     }
 }

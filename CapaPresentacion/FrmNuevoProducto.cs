@@ -16,8 +16,8 @@ namespace CapaPresentacion
         public bool Actualizar = false;
 
         //FrmNuevoProducto _nuevoProducto = new FrmNuevoProducto();
-       E_Productos entidad = new E_Productos();
-       N_Productos negocio = new N_Productos();
+        E_Productos entidad = new E_Productos();
+        N_Productos negocio = new N_Productos();
 
         FrmSuccess frmConfirmacion;
 
@@ -37,7 +37,7 @@ namespace CapaPresentacion
             //quiero que tenga el valor del id
             cmbCategoria.ValueMember = "IdCategoria";
             //pero quiero que el usuario vea el nombre
-            cmbCategoria.DisplayMember = "NombreCategoria"; 
+            cmbCategoria.DisplayMember = "NombreCategoria";
 
         }
         public void ListarMarca()
@@ -61,6 +61,7 @@ namespace CapaPresentacion
             {
                 try
                 {
+                    //le damos el valor correspondiente a los objetos de indentidad
                     entidad.Producto = txtNombreProducto.Text;
                     entidad.PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
                     entidad.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
@@ -77,7 +78,7 @@ namespace CapaPresentacion
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("No se logro guardar el registro. "+ ex.Message);
+                    MessageBox.Show("No se logro guardar el registro. " + ex.Message);
                 }
 
             }
@@ -107,6 +108,6 @@ namespace CapaPresentacion
             }
         }
 
-      
+
     }
 }

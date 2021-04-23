@@ -61,7 +61,7 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-  <data name="pbSearchProductSale.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pbApplySale.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAlEAAAJFCAYAAAD9O6JTAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAA/7JJREFUeF7snQd4HMeRtmkFK9iyZdnnIDmHc7pzPGefffZ/2b6z73zKkQpWpkTl
@@ -1756,7 +1756,7 @@
   <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWsAAAEpCAYAAABV1gMfAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAA3wdJREFUeF7s/Yd/HNX1/4///oPv4/N5f1IoxsYFCITqIktyAUx1Va+u2Mad3jsk
+        vwAADr8BOAVTJAAA3wdJREFUeF7s/Yd/HNX1/4///oPv4/N5f1IoxsYFCITqIktyAUx1Va+u2Mad3jsk
         EAiEkAQCIcmbhARI6LjiKlu9d1m2epdWbVV2V9uk1++87uxIK3lly12S58gvz+zs7OzM7Mzznjn33Hv/
         fzDMMMMMM2zUmwFrwwwzzLAxYAasDTPMMMPGgBmwNswwwwwbA2bA2jDDDDNsDJgBa8MMM8ywMWAGrA0z
         zDDDxoAZsDbMMMMMGwNmwNowwwwzbAyYAWvDDDPMsDFgBqwNM8www8aAGbA2zDDDDBsDZsDaMMMMM2wM
