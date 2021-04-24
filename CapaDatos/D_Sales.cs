@@ -31,13 +31,18 @@ namespace CapaDatos
             //cmd.ExecuteNonQuery();
            
             int idSale;
-            try
-            { //recibimos el ultimo ID insertado en la base de datos.
-                idSale = Convert.ToInt32(cmd.ExecuteScalar());
+            try 
+            {
+                //recibimos el ultimo ID insertado en la base de datos.
+                //para ello se uso desde el procediemiento almacenado SELECT SCOPE_IDENTITY()
+                idSale = Convert.ToInt32( cmd.ExecuteScalar());
+
             }
             catch (Exception)
             {
+
                 idSale = 0;
+
             }
             connection.Close();
             return idSale;

@@ -44,9 +44,11 @@ namespace CapaPresentacion
 
             if (dialogResult == DialogResult.OK)
             {
+                //cerramos el formulario principal
                 this.Close();
-                this.login = new FrmLogin();
-                login.ShowDialog();
+                //y abrimos otra vez el login.
+                login = new FrmLogin();
+                login.Show();
 
             }
         }

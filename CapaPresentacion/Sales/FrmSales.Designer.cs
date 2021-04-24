@@ -30,8 +30,8 @@ namespace CapaPresentacion.Sales
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSales));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalToPay = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -39,13 +39,21 @@ namespace CapaPresentacion.Sales
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblCodeProduct = new System.Windows.Forms.Label();
             this.txtCodeProduct = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txtQuantityToSell = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dgvTableSales = new System.Windows.Forms.DataGridView();
+            this.codeProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblAddressCustomer = new System.Windows.Forms.Label();
@@ -72,14 +80,6 @@ namespace CapaPresentacion.Sales
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.codeProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApplySale)).BeginInit();
             this.panel1.SuspendLayout();
@@ -176,16 +176,16 @@ namespace CapaPresentacion.Sales
             this.label13.TabIndex = 71;
             this.label13.Text = "2021/10/10";
             // 
-            // label10
+            // lblCodeProduct
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.DarkGray;
-            this.label10.Location = new System.Drawing.Point(238, 80);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(123, 22);
-            this.label10.TabIndex = 73;
-            this.label10.Text = "CODIGO PRODUCTO";
+            this.lblCodeProduct.AutoSize = true;
+            this.lblCodeProduct.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCodeProduct.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblCodeProduct.Location = new System.Drawing.Point(238, 80);
+            this.lblCodeProduct.Name = "lblCodeProduct";
+            this.lblCodeProduct.Size = new System.Drawing.Size(123, 22);
+            this.lblCodeProduct.TabIndex = 73;
+            this.lblCodeProduct.Text = "CODIGO PRODUCTO";
             // 
             // txtCodeProduct
             // 
@@ -249,14 +249,14 @@ namespace CapaPresentacion.Sales
             this.dgvTableSales.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTableSales.CausesValidation = false;
             this.dgvTableSales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTableSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTableSales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTableSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTableSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeProduct,
@@ -267,14 +267,14 @@ namespace CapaPresentacion.Sales
             this.total,
             this.idProduct,
             this.delete});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTableSales.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTableSales.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTableSales.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTableSales.EnableHeadersVisualStyles = false;
             this.dgvTableSales.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
@@ -288,6 +288,65 @@ namespace CapaPresentacion.Sales
             this.dgvTableSales.Size = new System.Drawing.Size(859, 253);
             this.dgvTableSales.TabIndex = 83;
             this.dgvTableSales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableSales_CellClick);
+            // 
+            // codeProduct
+            // 
+            this.codeProduct.HeaderText = "CODIGO";
+            this.codeProduct.Name = "codeProduct";
+            this.codeProduct.ReadOnly = true;
+            this.codeProduct.Width = 145;
+            // 
+            // product
+            // 
+            this.product.HeaderText = "PRODUCTO";
+            this.product.Name = "product";
+            this.product.ReadOnly = true;
+            this.product.Width = 250;
+            // 
+            // amount
+            // 
+            this.amount.HeaderText = "CANTIDAD";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "STOCK";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.Width = 75;
+            // 
+            // salePrice
+            // 
+            this.salePrice.FillWeight = 150F;
+            this.salePrice.HeaderText = "PRECIO";
+            this.salePrice.Name = "salePrice";
+            this.salePrice.ReadOnly = true;
+            this.salePrice.Width = 75;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "TOTAL";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 110;
+            // 
+            // idProduct
+            // 
+            this.idProduct.HeaderText = "IDPRODUCTO";
+            this.idProduct.Name = "idProduct";
+            this.idProduct.ReadOnly = true;
+            this.idProduct.Visible = false;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "ELIMINAR";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panel2
             // 
@@ -576,65 +635,6 @@ namespace CapaPresentacion.Sales
             this.panel10.Size = new System.Drawing.Size(2, 130);
             this.panel10.TabIndex = 109;
             // 
-            // codeProduct
-            // 
-            this.codeProduct.HeaderText = "CODIGO";
-            this.codeProduct.Name = "codeProduct";
-            this.codeProduct.ReadOnly = true;
-            this.codeProduct.Width = 145;
-            // 
-            // product
-            // 
-            this.product.HeaderText = "PRODUCTO";
-            this.product.Name = "product";
-            this.product.ReadOnly = true;
-            this.product.Width = 250;
-            // 
-            // amount
-            // 
-            this.amount.HeaderText = "CANTIDAD";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "STOCK";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 75;
-            // 
-            // salePrice
-            // 
-            this.salePrice.FillWeight = 150F;
-            this.salePrice.HeaderText = "PRECIO";
-            this.salePrice.Name = "salePrice";
-            this.salePrice.ReadOnly = true;
-            this.salePrice.Width = 75;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "TOTAL";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 110;
-            // 
-            // idProduct
-            // 
-            this.idProduct.HeaderText = "IDPRODUCTO";
-            this.idProduct.Name = "idProduct";
-            this.idProduct.ReadOnly = true;
-            this.idProduct.Visible = false;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "ELIMINAR";
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // FrmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 28F);
@@ -657,7 +657,7 @@ namespace CapaPresentacion.Sales
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtCodeProduct);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblCodeProduct);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label8);
             this.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -697,7 +697,7 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblCodeProduct;
         public System.Windows.Forms.TextBox txtCodeProduct;
         private System.Windows.Forms.PictureBox pictureBox5;
         public System.Windows.Forms.TextBox txtQuantityToSell;

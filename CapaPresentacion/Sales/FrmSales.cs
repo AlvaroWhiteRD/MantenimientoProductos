@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace CapaPresentacion.Sales
 {
@@ -46,6 +47,7 @@ namespace CapaPresentacion.Sales
                     //SearchProduct(txtCodeProduct.Text);
                     SaveProductsToaList(txtCodeProduct.Text);
 
+
                 }
             }
             catch (Exception ex)
@@ -60,13 +62,12 @@ namespace CapaPresentacion.Sales
         {
             //le pasamos la consulta al datatabble
             DataTable tableProduct = objBusinessProduct.SearchProductSale(search);
-            //verificamos si hay columa seleccionada
+
+
+            //verificamos si hay alguna busqueda que coincida con los productos de la base de datos.
+            //si los hay se continua, sino detemos la busqueda
             if (tableProduct.Rows.Count > 0)
             {
-
-                //variable que guardara el total general de la compra.
-                //double fullPayment = 0.0;
-
                 var index = dgvTableSales.Rows.Add();
 
                 try
@@ -79,16 +80,6 @@ namespace CapaPresentacion.Sales
                         double salePrice = 0;
                         //variable que guardara el total del monto del producto en esa fila. precio * cantidad.
                         double total = 0;
-
-                        /*if (productRow.Table.Columns.Contains("CODIGO"))
-
-                        {
-                            MessageBox.Show("igual");
-                        }
-                        else
-                        {
-                            MessageBox.Show("no igual");
-                        }*/
 
                         //llenamos las filas de la tabla con los datos que llegan de la base de datos
                         //idProduct nombre de la celda de la tabla
@@ -126,36 +117,42 @@ namespace CapaPresentacion.Sales
 
 
             }
+            else
+            {
+                lblCodeProduct.ForeColor = Color.Red;
+                lblCodeProduct.Text = "Producto No Encontrado.";
+                return;
+            }
 
         }
 
         //metodo que se encarga de validar que el producto en la venta no se agregue mas de una vez
         //sino mas bien, que se sume a la cantidad de productos.
-        public void Exits(string exists)
-        {
+        /* public void Exits(string exists)
+         {
 
-            foreach (DataGridViewRow rows in dgvTableSales.Rows)
-            {
-                //buscamos la celda a utilizar para la validacion
-                //en este caso el 5 es donde esta el CODIGO
-                string validadExiste = rows.Cells[0].Value.ToString();
-                if (exists == validadExiste)
-                {
-                    MessageBox.Show("igual");
-                }
-                else
-                    MessageBox.Show("no igual");
+             foreach (DataGridViewRow rows in dgvTableSales.Rows)
+             {
+                 //buscamos la celda a utilizar para la validacion
+                 //en este caso el 5 es donde esta el CODIGO
+                 string validadExiste = rows.Cells[0].Value.ToString();
+                 if (exists == validadExiste)
+                 {
+                     MessageBox.Show("igual");
+                 }
+                 else
+                     MessageBox.Show("no igual");
 
 
-            }
-            //le pasamos el total a nuestro label  de pago para mostrarlo al usuario.
-            //txtTotalToPay.Text = "RD$  " + total;
+             }
+             //le pasamos el total a nuestro label  de pago para mostrarlo al usuario.
+             //txtTotalToPay.Text = "RD$  " + total;
 
-            //limpiamos los campos luego de la busquedad
-            txtQuantityToSell.Text = "";
-            txtCodeProduct.Text = "";
-            txtQuantityToSell.Focus();
-        }
+             //limpiamos los campos luego de la busquedad
+             txtQuantityToSell.Text = "";
+             txtCodeProduct.Text = "";
+             txtQuantityToSell.Focus();
+         }*/
         //este metodo se encarga de sumar el valor de todas las CELDAS(total) de nuestro datagridview.
         //este metodo se usara donde se crea y eliminan las celdas.
         private void CalculateTotal()
@@ -242,6 +239,21 @@ namespace CapaPresentacion.Sales
         //evento-metodo- que se encarga de enviar la venta para el insert a la base de datos
         private void pbApplySale_Click(object sender, EventArgs e)
         {
+            //se valida que el campo cantidad y el codigo del producto tengan informacion
+            if (string.IsNullOrEmpty(txtQuantityToSell.Text))
+            {
+                txtQuantityToSell.Focus();
+                txtCodeProduct.Text = "";
+                return;
+
+            }
+            if (string.IsNullOrEmpty(txtCodeProduct.Text))
+            {
+                txtCodeProduct.Focus();
+                return;
+
+            }
+
             //realizamos la instancia de nuestra entidad y nuetro negocio.
             N_Sales applySale = new N_Sales();
             N_SalesConcepts applySaleConcepts = new N_SalesConcepts();
@@ -250,6 +262,20 @@ namespace CapaPresentacion.Sales
 
             try
             {
+                string noNumber = txtIdCliente.Text;
+                int number = 0;
+                //si el cliente no existe en la venta le agregamos un valor por defecto a nuestro cliente
+                //validamos de que la cadena sea un numero
+                if (!int.TryParse(noNumber, out number))
+                {
+                    txtIdCliente.Text = "1003";
+
+                }
+                //validamos de que el datagridview(tabla) tenga datos.
+                if (dgvTableSales.Rows.Count == 0)
+                    return;
+                
+
                 //le pasamos los valores a nuestra entidad
                 entitySale.IdUser = SessionUsers.IdUser;
                 entitySale.IdClient = Int32.Parse(txtIdCliente.Text);
@@ -259,6 +285,7 @@ namespace CapaPresentacion.Sales
                 //realizamos el envio de los datos para la insercion a la base de datos
                 int idSale = applySale.GenerarateSalesInsert(entitySale);
 
+              
                 //si el insert se realiza exitosamente en la tabla ventas
                 //se realizara el segundo insert a la tabla detalle de venta.
                 if (idSale > 0)
@@ -272,13 +299,14 @@ namespace CapaPresentacion.Sales
                         //buscamos en la celda a utilizar para el id del producto
                         entitySaleConcept.IdProduct = Int32.Parse(rows.Cells[6].Value.ToString());
                         //buscamos en la celda a utilizar para el precio del producto
-                        entitySaleConcept.SalePrice = Int32.Parse(rows.Cells[4].Value.ToString());
+                        entitySaleConcept.SalePrice = decimal.Parse(rows.Cells[4].Value.ToString());
                         //buscamos en la celda a utilizar para el total del producto.
-                        entitySaleConcept.Amount = Int32.Parse(rows.Cells[5].Value.ToString());
+                        entitySaleConcept.Amount = Int32.Parse(rows.Cells[2].Value.ToString());
                     }
-
+                    //realizamos el segundo insert
+                    //insert a la tabla detalle de venta
                     applySaleConcepts.GenerarateSaleConceptInsert(entitySaleConcept);
-                 
+
                     //venta exitosa
                     formSuccess = new FrmSuccess("Venta Exitosa!");
                     formSuccess.ShowDialog();
@@ -289,11 +317,12 @@ namespace CapaPresentacion.Sales
 
                     //limpiamos todos los campos de la venta
                     searchDNI.Text = "";
-                    lblCustomer.Text = "Nombre Del CLiente";
+                    lblCustomer.Text = "Cliente al contado";
                     lblAddressCustomer.Text = "Direccion Del Cliente";
                 }
                 else
                 {
+
                     formErro = new FrmError("Error en la venta.");
                     formErro.ShowDialog();
 
