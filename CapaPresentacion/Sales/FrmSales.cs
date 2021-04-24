@@ -240,7 +240,7 @@ namespace CapaPresentacion.Sales
         private void pbApplySale_Click(object sender, EventArgs e)
         {
             //se valida que el campo cantidad y el codigo del producto tengan informacion
-            if (string.IsNullOrEmpty(txtQuantityToSell.Text))
+           /* if (string.IsNullOrEmpty(txtQuantityToSell.Text))
             {
                 txtQuantityToSell.Focus();
                 txtCodeProduct.Text = "";
@@ -252,7 +252,7 @@ namespace CapaPresentacion.Sales
                 txtCodeProduct.Focus();
                 return;
 
-            }
+            }*/
 
             //realizamos la instancia de nuestra entidad y nuetro negocio.
             N_Sales applySale = new N_Sales();
@@ -325,7 +325,7 @@ namespace CapaPresentacion.Sales
 
                     formErro = new FrmError("Error en la venta.");
                     formErro.ShowDialog();
-
+                    return;
 
                 }
 

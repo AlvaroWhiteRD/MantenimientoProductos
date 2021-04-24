@@ -700,7 +700,7 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Label lblCodeProduct;
         public System.Windows.Forms.TextBox txtCodeProduct;
         private System.Windows.Forms.PictureBox pictureBox5;
-        public System.Windows.Forms.TextBox txtQuantityToSell;
+        public System.Windows.Forms.TextBox txtCodeProduct;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvTableSales;
