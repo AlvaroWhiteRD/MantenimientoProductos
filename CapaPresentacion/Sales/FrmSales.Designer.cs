@@ -40,9 +40,7 @@ namespace CapaPresentacion.Sales
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblCodeProduct = new System.Windows.Forms.Label();
-            this.txtCodeProduct = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txtQuantityToSell = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dgvTableSales = new System.Windows.Forms.DataGridView();
@@ -68,7 +66,7 @@ namespace CapaPresentacion.Sales
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnSalesCancer = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.searchDNI = new System.Windows.Forms.TextBox();
@@ -80,6 +78,8 @@ namespace CapaPresentacion.Sales
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.txtQuantityToSell = new System.Windows.Forms.TextBox();
+            this.txtCodeProduct = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApplySale)).BeginInit();
             this.panel1.SuspendLayout();
@@ -91,7 +91,7 @@ namespace CapaPresentacion.Sales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSalesCancer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -151,7 +151,7 @@ namespace CapaPresentacion.Sales
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1092, 64);
+            this.panel1.Size = new System.Drawing.Size(1080, 64);
             this.panel1.TabIndex = 63;
             // 
             // label6
@@ -187,17 +187,6 @@ namespace CapaPresentacion.Sales
             this.lblCodeProduct.TabIndex = 73;
             this.lblCodeProduct.Text = "CODIGO PRODUCTO";
             // 
-            // txtCodeProduct
-            // 
-            this.txtCodeProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodeProduct.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCodeProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
-            this.txtCodeProduct.Location = new System.Drawing.Point(252, 118);
-            this.txtCodeProduct.Name = "txtCodeProduct";
-            this.txtCodeProduct.Size = new System.Drawing.Size(141, 23);
-            this.txtCodeProduct.TabIndex = 1;
-            this.txtCodeProduct.TextChanged += new System.EventHandler(this.txtCodeProduct_TextChanged);
-            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::CapaPresentacion.Properties.Resources.CajaTexto;
@@ -207,18 +196,6 @@ namespace CapaPresentacion.Sales
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 75;
             this.pictureBox5.TabStop = false;
-            // 
-            // txtQuantityToSell
-            // 
-            this.txtQuantityToSell.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtQuantityToSell.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtQuantityToSell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
-            this.txtQuantityToSell.Location = new System.Drawing.Point(86, 117);
-            this.txtQuantityToSell.Name = "txtQuantityToSell";
-            this.txtQuantityToSell.ShortcutsEnabled = false;
-            this.txtQuantityToSell.Size = new System.Drawing.Size(109, 23);
-            this.txtQuantityToSell.TabIndex = 0;
-            this.txtQuantityToSell.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantityToSell_KeyPress);
             // 
             // pictureBox6
             // 
@@ -455,7 +432,7 @@ namespace CapaPresentacion.Sales
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.lblEmployeeName);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Controls.Add(this.pictureBox7);
+            this.panel5.Controls.Add(this.btnSalesCancer);
             this.panel5.Controls.Add(this.pbApplySale);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label13);
@@ -504,17 +481,18 @@ namespace CapaPresentacion.Sales
             this.label12.TabIndex = 73;
             this.label12.Text = "FECHA.:";
             // 
-            // pictureBox7
+            // btnSalesCancer
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(541, 24);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(117, 69);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 107;
-            this.pictureBox7.TabStop = false;
+            this.btnSalesCancer.BackColor = System.Drawing.Color.White;
+            this.btnSalesCancer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalesCancer.Image = ((System.Drawing.Image)(resources.GetObject("btnSalesCancer.Image")));
+            this.btnSalesCancer.Location = new System.Drawing.Point(541, 24);
+            this.btnSalesCancer.Name = "btnSalesCancer";
+            this.btnSalesCancer.Size = new System.Drawing.Size(117, 69);
+            this.btnSalesCancer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnSalesCancer.TabIndex = 107;
+            this.btnSalesCancer.TabStop = false;
+            //this.btnSalesCancer.Click += new System.EventHandler(this.btnSalesCancer_Click);
             // 
             // label9
             // 
@@ -635,12 +613,41 @@ namespace CapaPresentacion.Sales
             this.panel10.Size = new System.Drawing.Size(2, 130);
             this.panel10.TabIndex = 109;
             // 
+            // txtQuantityToSell
+            // 
+            this.txtQuantityToSell.AcceptsReturn = true;
+            this.txtQuantityToSell.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQuantityToSell.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtQuantityToSell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.txtQuantityToSell.Location = new System.Drawing.Point(83, 117);
+            this.txtQuantityToSell.Name = "txtQuantityToSell";
+            this.txtQuantityToSell.ShortcutsEnabled = false;
+            this.txtQuantityToSell.Size = new System.Drawing.Size(112, 23);
+            this.txtQuantityToSell.TabIndex = 0;
+            this.txtQuantityToSell.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQuantityToSell.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantityToSell_KeyPress);
+            // 
+            // txtCodeProduct
+            // 
+            this.txtCodeProduct.AcceptsReturn = true;
+            this.txtCodeProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodeProduct.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCodeProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(118)))), ((int)(((byte)(242)))));
+            this.txtCodeProduct.Location = new System.Drawing.Point(252, 117);
+            this.txtCodeProduct.Name = "txtCodeProduct";
+            this.txtCodeProduct.Size = new System.Drawing.Size(141, 23);
+            this.txtCodeProduct.TabIndex = 1;
+            this.txtCodeProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodeProduct.TextChanged += new System.EventHandler(this.txtCodeProduct_TextChanged);
+            // 
             // FrmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1092, 927);
+            this.ClientSize = new System.Drawing.Size(1080, 927);
+            this.Controls.Add(this.txtQuantityToSell);
+            this.Controls.Add(this.txtCodeProduct);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
@@ -652,10 +659,8 @@ namespace CapaPresentacion.Sales
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtQuantityToSell);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtCodeProduct);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.lblCodeProduct);
             this.Controls.Add(this.panel1);
@@ -679,7 +684,7 @@ namespace CapaPresentacion.Sales
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSalesCancer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -698,9 +703,8 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblCodeProduct;
-        public System.Windows.Forms.TextBox txtCodeProduct;
         private System.Windows.Forms.PictureBox pictureBox5;
-        public System.Windows.Forms.TextBox txtCodeProduct;
+        //public System.Windows.Forms.TextBox txtCodeProduct;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvTableSales;
@@ -720,7 +724,7 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblEmployeeName;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox btnSalesCancer;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel6;
@@ -738,5 +742,8 @@ namespace CapaPresentacion.Sales
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProduct;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.TextBox txtQuantityToSell;
+        private System.Windows.Forms.TextBox txtCodeProduct;
+        //private System.Windows.Forms.TextBox txtCodeProduct;
     }
 }

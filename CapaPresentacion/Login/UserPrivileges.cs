@@ -28,6 +28,14 @@ namespace CapaPresentacion.Login
 
             // _login.Close();
             //Application.Exit();
+            _frmPrincipal.btnDashboad.Visible = false;
+            _frmPrincipal.btnBuys.Visible = false;
+            _frmPrincipal.btnEmployees.Visible = false;
+            _frmPrincipal.btnProviders.Visible = false;
+            _frmPrincipal.btnProfits.Visible = false;
+            _frmPrincipal.btnUsers.Visible = false;
+
+
             _frmPrincipal.ShowDialog();
         }
     }

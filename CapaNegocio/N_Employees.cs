@@ -36,5 +36,9 @@ namespace CapaNegocio
         {
             objEmployee.DeleteEmployee(_employees);
         }
+        public List<E_Employees> ShowEmployeeFullNameID()
+        {
+            return objEmployee.ShowEmployeeFullNameID();
+        }
     }
 }

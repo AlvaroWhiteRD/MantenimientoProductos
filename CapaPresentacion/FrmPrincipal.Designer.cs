@@ -39,6 +39,10 @@ namespace CapaPresentacion
             this.pbSalir = new System.Windows.Forms.PictureBox();
             this.Wrapper = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.Panel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.btnPasswordChanged = new System.Windows.Forms.Button();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnDashboad = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -64,6 +68,8 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSalir)).BeginInit();
             this.sidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -78,6 +84,8 @@ namespace CapaPresentacion
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.header.Controls.Add(this.pictureBox12);
+            this.header.Controls.Add(this.btnPasswordChanged);
             this.header.Controls.Add(this.lblNameSession);
             this.header.Controls.Add(this.panel3);
             this.header.Controls.Add(this.label1);
@@ -95,7 +103,7 @@ namespace CapaPresentacion
             this.lblNameSession.AutoSize = true;
             this.lblNameSession.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lblNameSession.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
-            this.lblNameSession.Location = new System.Drawing.Point(914, 28);
+            this.lblNameSession.Location = new System.Drawing.Point(635, 23);
             this.lblNameSession.Name = "lblNameSession";
             this.lblNameSession.Size = new System.Drawing.Size(165, 26);
             this.lblNameSession.TabIndex = 3;
@@ -168,6 +176,8 @@ namespace CapaPresentacion
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.sidebar.Controls.Add(this.pictureBox11);
+            this.sidebar.Controls.Add(this.btnUsers);
             this.sidebar.Controls.Add(this.pictureBox3);
             this.sidebar.Controls.Add(this.btnDashboad);
             this.sidebar.Controls.Add(this.pictureBox10);
@@ -194,13 +204,77 @@ namespace CapaPresentacion
             this.sidebar.Size = new System.Drawing.Size(195, 780);
             this.sidebar.TabIndex = 1;
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.InitialImage")));
+            this.pictureBox12.Location = new System.Drawing.Point(1015, 23);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(30, 21);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 26;
+            this.pictureBox12.TabStop = false;
+            // 
+            // btnPasswordChanged
+            // 
+            this.btnPasswordChanged.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnPasswordChanged.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPasswordChanged.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnPasswordChanged.FlatAppearance.BorderSize = 0;
+            this.btnPasswordChanged.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnPasswordChanged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasswordChanged.Font = new System.Drawing.Font("Poppins Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPasswordChanged.ForeColor = System.Drawing.Color.White;
+            this.btnPasswordChanged.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPasswordChanged.Location = new System.Drawing.Point(1008, 12);
+            this.btnPasswordChanged.Name = "btnPasswordChanged";
+            this.btnPasswordChanged.Size = new System.Drawing.Size(181, 43);
+            this.btnPasswordChanged.TabIndex = 25;
+            this.btnPasswordChanged.Text = "     CONTRASEÑA";
+            this.btnPasswordChanged.UseVisualStyleBackColor = false;
+            this.btnPasswordChanged.Click += new System.EventHandler(this.btnPasswordChanged_Click);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.InitialImage")));
+            this.pictureBox11.Location = new System.Drawing.Point(12, 640);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 24;
+            this.pictureBox11.TabStop = false;
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsers.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Poppins Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(5, 634);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(181, 43);
+            this.btnUsers.TabIndex = 23;
+            this.btnUsers.Text = "USUARIOS";
+            this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 411);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 398);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 21);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -218,7 +292,7 @@ namespace CapaPresentacion
             this.btnDashboad.Font = new System.Drawing.Font("Poppins Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnDashboad.ForeColor = System.Drawing.Color.White;
             this.btnDashboad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboad.Location = new System.Drawing.Point(5, 400);
+            this.btnDashboad.Location = new System.Drawing.Point(5, 389);
             this.btnDashboad.Name = "btnDashboad";
             this.btnDashboad.Size = new System.Drawing.Size(181, 43);
             this.btnDashboad.TabIndex = 7;
@@ -504,6 +578,8 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.pbSalir)).EndInit();
             this.sidebar.ResumeLayout(false);
             this.sidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -548,5 +624,9 @@ namespace CapaPresentacion
         public System.Windows.Forms.Button btnSales;
         public System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.Label lblNameSession;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        public System.Windows.Forms.Button btnUsers;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        public System.Windows.Forms.Button btnPasswordChanged;
     }
 }

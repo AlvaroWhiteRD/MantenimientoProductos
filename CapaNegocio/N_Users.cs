@@ -15,7 +15,10 @@ namespace CapaNegocio
         {
             return objUser.LoginValidate(user,password);
         }
-
+        public int UpdatePassword(int id, string password)
+        {
+            return objUser.UpdatePassword( id, password);
+        }
 
     }
 }

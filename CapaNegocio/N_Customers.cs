@@ -18,7 +18,7 @@ namespace CapaNegocio
 
         public List<E_Customers> ShowCliemt()
         {
-            return objCustomer.ShowCliemt();
+            return objCustomer.ShowCliemt(); 
         }
         public List<E_Customers> SearchCustomer(string search)
         {

@@ -3,6 +3,7 @@ using CapaPresentacion.Customers;
 using CapaPresentacion.Empleados;
 using CapaPresentacion.Login;
 using CapaPresentacion.Sales;
+using CapaPresentacion.Users_Management;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,48 +55,59 @@ namespace CapaPresentacion
         }
 
         // creamos una variable para el cambio de formulario dentro del wrapper
-        private Form formSeleccionado = null;
+        private Form SelectForm = null;
 
-        private void AbrirFormularioEnWrapper(Form formularioHijo)
+        private void OpenFormInWrapper(Form SonForm)
         {
-            if (formSeleccionado != null)
+            if (SelectForm != null)
                 //si existe otro formulario abierto lo cerramos para abrir el nuevo
-                formSeleccionado.Close();
+                SelectForm.Close();
 
-            formSeleccionado = formularioHijo;
-            formularioHijo.TopLevel = false;
-            formularioHijo.Dock = DockStyle.Fill;
+            SelectForm = SonForm;
+            SonForm.TopLevel = false;
+            SonForm.Dock = DockStyle.Fill;
             //agremos el formulario hijo al panel WRAPPER
-            Wrapper.Controls.Add(formularioHijo);
-            Wrapper.Tag = formularioHijo;
-            formularioHijo.BringToFront();
-            formularioHijo.Show();
+            Wrapper.Controls.Add(SonForm);
+            Wrapper.Tag = SonForm;
+            SonForm.BringToFront();
+            SonForm.Show();
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
         {
-            AbrirFormularioEnWrapper(new FrmDashboard());
+            OpenFormInWrapper(new FrmDashboard());
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormularioEnWrapper(new FrmProductos());
+            OpenFormInWrapper(new FrmProductos());
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            AbrirFormularioEnWrapper(new FrmEmployee());
+            OpenFormInWrapper(new FrmEmployee());
         }
         private void btnClients_Click(object sender, EventArgs e)
         {
-            AbrirFormularioEnWrapper(new FrmCustomers());
+                OpenFormInWrapper(new FrmCustomers());
+        
         }
 
         private void btnSales_Click(object sender, EventArgs e)
         {
-            AbrirFormularioEnWrapper(new FrmSales());
+            OpenFormInWrapper(new FrmSales());
         }
 
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            OpenFormInWrapper(new FrmUsersManagement());
+        }
+        //btn para actualizar la contrasena
+        private void btnPasswordChanged_Click(object sender, EventArgs e)
+        {
+            FrmUpdatePassword  frmUpdatePassword = new FrmUpdatePassword();
+            frmUpdatePassword.ShowDialog();
+        }
         //pasos para hacer que se mueva el formulario
         //PASO 1: declarar como globales
         private int xClick = 0, yClick = 0;
@@ -112,7 +124,6 @@ namespace CapaPresentacion
                 this.Top = this.Top + (e.Y - yClick);
             }
         }
-
 
         //PASO 2: en el evento MouseMove del Form
         private void moverForm(object sender, MouseEventArgs e)

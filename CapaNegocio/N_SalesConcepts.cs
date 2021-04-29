@@ -17,7 +17,7 @@ namespace CapaNegocio
         D_SalesConcepts objSalesConcepts = new D_SalesConcepts();
 
         
-        public void GenerarateSaleConceptInsert(E_SalesConcepts _salesConcept)
+        public void GenerarateSaleConceptInsert(List<E_SalesConcepts> _salesConcept)
         {
            objSalesConcepts.GenerarateSaleConceptInsert(_salesConcept);
         }

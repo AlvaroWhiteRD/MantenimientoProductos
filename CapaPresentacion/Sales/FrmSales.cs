@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using System.Collections;
 
 namespace CapaPresentacion.Sales
 {
@@ -29,32 +30,6 @@ namespace CapaPresentacion.Sales
             txtQuantityToSell.Text = "";
             txtQuantityToSell.Focus();
             //ItemsCmbClient();
-        }
-        //metodo que busca los productos para agregarlo a la tabla
-        private void txtCodeProduct_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(txtQuantityToSell.Text))
-                {
-                    txtQuantityToSell.Focus();
-                    txtCodeProduct.Text = "";
-                    return;
-
-                }
-                else
-                {
-                    //SearchProduct(txtCodeProduct.Text);
-                    SaveProductsToaList(txtCodeProduct.Text);
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("ERROR EN LA BUSQUEDA. " + ex.Message);
-            }
         }
 
         //metodo que se encarga de agregar cada producto a la tabla de ventas
@@ -204,11 +179,11 @@ namespace CapaPresentacion.Sales
 
         }
         //metodo que se encarga de validar solo numero en el input cantidadd
-        private void txtQuantityToSell_KeyPress(object sender, KeyPressEventArgs e)
+        /*private void txtQuantityToSell_KeyPress(object sender, KeyPressEventArgs e)
         {
             ValidationFormUtilities.OnlyNumber(sender, e);
 
-        }
+        }*/
 
         //metodo que se encarga de validar solo numero en el input buscar por cedula o dni
         private void searchDNI_KeyPress(object sender, KeyPressEventArgs e)
@@ -239,26 +214,12 @@ namespace CapaPresentacion.Sales
         //evento-metodo- que se encarga de enviar la venta para el insert a la base de datos
         private void pbApplySale_Click(object sender, EventArgs e)
         {
-            //se valida que el campo cantidad y el codigo del producto tengan informacion
-           /* if (string.IsNullOrEmpty(txtQuantityToSell.Text))
-            {
-                txtQuantityToSell.Focus();
-                txtCodeProduct.Text = "";
-                return;
-
-            }
-            if (string.IsNullOrEmpty(txtCodeProduct.Text))
-            {
-                txtCodeProduct.Focus();
-                return;
-
-            }*/
 
             //realizamos la instancia de nuestra entidad y nuetro negocio.
             N_Sales applySale = new N_Sales();
             N_SalesConcepts applySaleConcepts = new N_SalesConcepts();
             E_Sales entitySale = new E_Sales();
-            E_SalesConcepts entitySaleConcept = new E_SalesConcepts();
+            E_SalesConcepts entitySaleConcept;
 
             try
             {
@@ -273,8 +234,12 @@ namespace CapaPresentacion.Sales
                 }
                 //validamos de que el datagridview(tabla) tenga datos.
                 if (dgvTableSales.Rows.Count == 0)
+                {
+                    txtQuantityToSell.Focus();
+                    lblCodeProduct.Text = "CODIGO PRODUCTO";
+                    lblCodeProduct.ForeColor = Color.DarkGray;
                     return;
-                
+                }
 
                 //le pasamos los valores a nuestra entidad
                 entitySale.IdUser = SessionUsers.IdUser;
@@ -291,9 +256,14 @@ namespace CapaPresentacion.Sales
                 if (idSale > 0)
 
                 {
+                    //creamos la lista que contendra nuestra entidad E_SalesConcepts
+                    List<E_SalesConcepts> list_SalesConcepts = new List<E_SalesConcepts>();
                     //creamos un ciclo para recorrer cada celda de la tabla(datagridview sales)
                     foreach (DataGridViewRow rows in dgvTableSales.Rows)
                     {
+                        //creamos el objeto
+                        entitySaleConcept = new E_SalesConcepts();
+
                         //el tomamos el ultimo id insertado
                         entitySaleConcept.IdSale = idSale;
                         //buscamos en la celda a utilizar para el id del producto
@@ -302,10 +272,17 @@ namespace CapaPresentacion.Sales
                         entitySaleConcept.SalePrice = decimal.Parse(rows.Cells[4].Value.ToString());
                         //buscamos en la celda a utilizar para el total del producto.
                         entitySaleConcept.Amount = Int32.Parse(rows.Cells[2].Value.ToString());
+                        //llenamos la lista con nuestra entidad 
+                        list_SalesConcepts.Add(entitySaleConcept);
                     }
                     //realizamos el segundo insert
                     //insert a la tabla detalle de venta
-                    applySaleConcepts.GenerarateSaleConceptInsert(entitySaleConcept);
+
+                    if (list_SalesConcepts.Count>0)
+                    {
+                        applySaleConcepts.GenerarateSaleConceptInsert(list_SalesConcepts);
+                        //else error
+                    }
 
                     //venta exitosa
                     formSuccess = new FrmSuccess("Venta Exitosa!");
@@ -338,6 +315,44 @@ namespace CapaPresentacion.Sales
                 MessageBox.Show("algo no anda bien..." + ex);
             }
         }
+        //metodo que busca los productos para agregarlo a la tabla
+        private void txtCodeProduct_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtQuantityToSell.Text))
+                {
+                    txtQuantityToSell.Focus();
+                    txtCodeProduct.Text = "";
+                    return;
+
+                }
+                else
+                {
+                    //SearchProduct(txtCodeProduct.Text);
+                    SaveProductsToaList(txtCodeProduct.Text);
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("ERROR EN LA BUSQUEDA. " + ex.Message);
+            }
+        }
+        //metodo que valida solo numero en el campo cantidad
+        private void txtQuantityToSell_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //validamos solo <<numero>> en el textbox.
+            ValidationFormUtilities.OnlyNumber(sender, e);
+          
+        }
+        //metodo que valida solo numero en el textbox
+        /*private void txtQuantityToSell_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            ValidationFormUtilities.OnlyNumber(sender, e);
+        }*/
     }
 
 

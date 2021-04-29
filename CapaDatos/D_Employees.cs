@@ -34,11 +34,11 @@ namespace CapaDatos
 
             while (readerRow.Read())
             {
-                
+
                 //pasamos los datos de nuestra bse de datos a nuestra objeto entidad a travez de la lista
-                listing.Add( new E_Employees
+                listing.Add(new E_Employees
                 {
-                   //IdEmployee = readerFil.GetInt32(0),
+                    //IdEmployee = readerFil.GetInt32(0),
                     NameEmployee = readerRow.GetString(0),
                     MothersLastName = readerRow.GetString(1),
                     LastName = readerRow.GetString(2),
@@ -47,8 +47,8 @@ namespace CapaDatos
                     Phone = readerRow.GetInt32(5),
                     Sex = readerRow.GetString(6),
                     CivilStatus = readerRow.GetString(7),
-                    
-                    AddressEmployee = readerRow.GetString(8),                  
+
+                    AddressEmployee = readerRow.GetString(8),
                     DateOfAdmission = readerRow.GetDateTime(9),
                     IdDepartment = readerRow.GetInt32(10),
                     Department = readerRow.GetString(11),
@@ -62,6 +62,29 @@ namespace CapaDatos
             return listing;
 
 
+        }
+        //metodo que traera el nombre completo del empleado concatenado
+        public List<E_Employees> ShowEmployeeFullNameID()
+        {
+            SqlDataReader readerRow;
+            SqlCommand cmd = new SqlCommand("SP_show_employee_name_id", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            connection.Open();
+
+            readerRow = cmd.ExecuteReader();
+            List<E_Employees> listing = new List<E_Employees>();
+
+            while (readerRow.Read())
+            {
+                listing.Add(new E_Employees
+                {
+                    NameEmployee = readerRow.GetString(0),
+                    IdEmployee = readerRow.GetInt32(1)
+                });
+            }
+            connection.Close();
+            readerRow.Close();
+            return listing;
         }
         public List<E_Employees> SearchEmployee(string search)
         {
@@ -99,7 +122,7 @@ namespace CapaDatos
                     DateOfAdmission = readerRow.GetDateTime(8),
                     IdDepartment = readerRow.GetInt32(9),
                     Department = readerRow.GetString(10),
-                   // IdEmployee = readerRow.GetInt32(12)
+                    // IdEmployee = readerRow.GetInt32(12)
 
                 });
             }
@@ -132,7 +155,7 @@ namespace CapaDatos
             cmd.ExecuteNonQuery();
             connection.Close();
 
-        
+
         }
         public void UpdateEmployee(E_Employees _employee)
         {

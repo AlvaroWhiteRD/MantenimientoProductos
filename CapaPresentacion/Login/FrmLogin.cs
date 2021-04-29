@@ -20,6 +20,7 @@ namespace CapaPresentacion.Login
         {
             InitializeComponent();
             usarPlaceholder();
+            
         }
 
         private void lblSalir_Click(object sender, EventArgs e)
@@ -63,9 +64,10 @@ namespace CapaPresentacion.Login
                     lbEerroPass.Focus();
                     return;
                 }
+                //encriptamos el password.
+                string password = CapaDatos.EncryptPassword.GetSHA256(txtPassword.Text);
 
-
-                usersEntities = users.LoginValidate(txtUserName.Text, txtPassword.Text);
+                usersEntities = users.LoginValidate(txtUserName.Text, password);
 
                 //luego de validar el user y pass ingresado sean valido. 
                 if (usersEntities != null)
@@ -111,23 +113,6 @@ namespace CapaPresentacion.Login
                 }
 
 
-
-                /* if (usersEntities == "")
-                 {
-                     //FrmPrincipal frmPrincipal = new FrmPrincipal();
-                     //this.Hide();
-                     //frmPrincipal.ShowDialog();
-                 }
-                 else if (usersEntities)
-                 {
-                     MessageBox.Show("Usuario o Contraseña incorrectos ." , "Valla, algo no anda bien!!");
-
-                 }
-                 else
-                 {
-                     MessageBox.Show("algo no esta muy bien .", "Valla, algo no anda bien!!");
-
-                 }*/
             }
             catch (Exception ex)
             {

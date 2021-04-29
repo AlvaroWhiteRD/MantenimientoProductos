@@ -23,7 +23,7 @@ namespace CapaPresentacion.Empleados
             InitializeComponent();
 
             ShowEmployee();
-            HideShiwWidthCol();
+            HideShiwWidthRow();
 
         }
 
@@ -40,7 +40,7 @@ namespace CapaPresentacion.Empleados
            tableEmployee.DataSource = objBusine.ShowEmployee();
         }
         //metodo que se encarga de ocultar, mover y anchar algunas columnas
-        public void HideShiwWidthCol()
+        public void HideShiwWidthRow()
         {
             //ocultamos los campos ids de la base de datos en la tabla
             tableEmployee.Columns[2].Visible = false;
